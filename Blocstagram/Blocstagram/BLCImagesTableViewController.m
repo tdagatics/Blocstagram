@@ -3,7 +3,7 @@
 //  Blocstagram
 //
 //  Created by Anthony Dagati on 9/23/14.
-//  Copyright (c) 2014 Black Rail Capital. All rights reserved.
+//  Copyright (c) 2014 Black Rail Capital. All rights reserved. Revised.
 //
 
 #import "BLCImagesTableViewController.h"
@@ -87,27 +87,41 @@
     return cell;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    //return 300; *Set arbitrary height for the view of the image in the cell
+    UIImage *image = self.images[indexPath.row];
+    NSLog(@"Width of the device: %f", CGRectGetWidth(self.view.frame)); // References the width of the view of the device
+    NSLog(@"Width of the image: %f", image.size.width);
+    NSLog(@"Original height of the image: %f", image.size.height);
+    NSLog(@"Final height of the image: %f", (CGRectGetWidth(self.view.frame)/image.size.width)*image.size.height);
+    return (CGRectGetWidth(self.view.frame)/image.size.width) * image.size.height;
+}
 
-/*
-// Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
-// Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        UIImage *image = self.images[indexPath.row];
+        [self.images removeObject:image];
         // Delete the row from the data source
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    }
 }
+
+/*
+// Override to support conditional editing of the table view.
+*/
+
+/*
+// Override to support editing the table view.
+
 */
 
 /*
