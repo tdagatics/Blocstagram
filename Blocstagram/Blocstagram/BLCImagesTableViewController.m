@@ -19,6 +19,7 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        self.images = [NSMutableArray array];
     }
     return self;
 }
@@ -26,6 +27,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    for (int i = 1; i <= 10; i++) {
+        NSString *imageName = [NSString stringWithFormat:@"%d.jpg", i];
+        UIImage *image = [UIImage imageNamed:imageName];
+        if (image) {
+            [self.images addObject:image];
+        }
+    }
+    
+    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
