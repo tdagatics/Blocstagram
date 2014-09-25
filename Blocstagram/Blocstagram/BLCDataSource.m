@@ -53,7 +53,7 @@
             NSUInteger commentCount = arc4random_uniform(10);
             NSMutableArray *randomComments = [NSMutableArray array];
             
-            for (int i = 0; int <= commentCount; i++) {
+            for (int i = 0; i <= commentCount; i++) {
                 BLCComment *randomComment = [self randomComment];
                 [randomComments addObject:randomComment];
             }
@@ -65,7 +65,6 @@
     }
     
     self.mediaItems = randomMediaItems;
-
 }
 
 -(BLCUser *) randomUser {
