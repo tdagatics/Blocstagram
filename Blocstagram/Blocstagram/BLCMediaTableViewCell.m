@@ -59,6 +59,7 @@ static NSParagraphStyle *paragraphStyle;
         }
     }
     return self;
+    
 }
 
 -(NSAttributedString *) usernameAndCaptionString {
@@ -122,4 +123,12 @@ static NSParagraphStyle *paragraphStyle;
     self.separatorInset = UIEdgeInsetsMake(0, 0, 0, CGRectGetWidth(self.bounds));
 }
 
+-(void) setMediaItem:(BLCMedia *)mediaItem {
+    _mediaItem = mediaItem;
+    self.mediaImageView.image = _mediaItem.image;
+    self.usernameAndCaptionLabel.attributedText = [self usernameAndCaptionString];
+    self.commentLabel.attributedText = [self commentString];
+}
+
+@end
 @end
