@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class BLCMedia;
+
 @interface BLCMediaTableViewCell : UITableViewCell
+
+@property (nonatomic, strong) BLCMedia *mediaItem;
 
 @end
