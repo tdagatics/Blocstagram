@@ -77,4 +77,32 @@ static NSParagraphStyle *paragraphStyle;
     return mutableUsernameAndCaptionString;
 }
 
+-(NSAttributedString *)commentString {
+    NSMutableAttributedString *commentString = [[NSMutableAttributedString alloc] init];
+    
+    for (BLCComment *comment in self.mediaItem.comments) {
+        // Make a string that says "username comment text" followed by a line break
+        NSString *baseString = [NSString stringWithFormat:@"%@ %@\n", comment.from.userName, comment.text];
+        
+        // Make an attributed string with the "username" bold
+        
+        NSMutableAttributedString *oneCommentString = [[NSMutableAttributedString alloc] initWithString:baseString attributes:@{NSFontAttributeName : lightFont, NSParagraphStyleAttributeName : paragraphStyle}];
+        
+        NSRange userNameRange = [baseString rangeOfString:comment.from.userName];
+        [oneCommentString addAttribute:NSFontAttributeName value:boldFont range:userNameRange];
+        [oneCommentString addAttribute:NSForegroundColorAttributeName value:linkColor range:userNameRange];
+        
+        [commentString appendAttributedString:oneCommentString];
+    }
+    return commentString;
+}
+
+
+
+
+
+
+
+
+
 @end
