@@ -50,7 +50,11 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [BLCDataSource sharedInstance].mediaItems.count;
+//      return [BLCDataSource return [self [items.count]];
+    return self.items.count;
+    
+//    return [self items.count];
+    
 }
 
 
@@ -76,7 +80,9 @@
         
     }
     
-    BLCMedia *item = [BLCDataSource sharedInstance].mediaItems[indexPath.row];
+   // BLCMedia *item = [BLCDataSource sharedInstance].mediaItems[indexPath.row];
+    BLCMedia *item = self.items[indexPath.row];
+    
     imageView.image = item.image;
     
     
@@ -85,11 +91,12 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     //return 300; *Set arbitrary height for the view of the image in the cell
-    BLCMedia *item = [BLCDataSource sharedInstance].mediaItems[indexPath.row];
+   // BLCMedia *item = [BLCDataSource sharedInstance].mediaItems[indexPath.row];
+    BLCMedia *item = self.items[indexPath.row];
+    
     UIImage *image = item.image;
     
     return image.size.height / image.size.width * CGRectGetWidth(self.view.frame);
-    
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -145,5 +152,11 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(NSArray *) items {
+    NSArray *items = [BLCDataSource sharedInstance].mediaItems;
+    return items;
+}
+
 
 @end
