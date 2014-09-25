@@ -33,6 +33,7 @@
 		437576D019D39B9300C27315 /* BLCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 437576CF19D39B9300C27315 /* BLCUser.m */; };
 		437576D319D39C0600C27315 /* BLCMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 437576D219D39C0600C27315 /* BLCMedia.m */; };
 		437576D619D39C9E00C27315 /* BLCComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 437576D519D39C9E00C27315 /* BLCComment.m */; };
+		437576D919D3A1C600C27315 /* BLCDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 437576D819D3A1C600C27315 /* BLCDataSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,8 @@
 		437576D219D39C0600C27315 /* BLCMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCMedia.m; sourceTree = "<group>"; };
 		437576D419D39C9E00C27315 /* BLCComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCComment.h; sourceTree = "<group>"; };
 		437576D519D39C9E00C27315 /* BLCComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCComment.m; sourceTree = "<group>"; };
+		437576D719D3A1C600C27315 /* BLCDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCDataSource.h; sourceTree = "<group>"; };
+		437576D819D3A1C600C27315 /* BLCDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCDataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +146,8 @@
 				437576D219D39C0600C27315 /* BLCMedia.m */,
 				437576D419D39C9E00C27315 /* BLCComment.h */,
 				437576D519D39C9E00C27315 /* BLCComment.m */,
+				437576D719D3A1C600C27315 /* BLCDataSource.h */,
+				437576D819D3A1C600C27315 /* BLCDataSource.m */,
 				4326335719D256E10037C347 /* BLCAppDelegate.h */,
 				4326335819D256E10037C347 /* BLCAppDelegate.m */,
 				437576CE19D39B9300C27315 /* BLCUser.h */,
@@ -314,6 +319,7 @@
 				4326338E19D2577E0037C347 /* BLCImagesTableViewController.m in Sources */,
 				437576D319D39C0600C27315 /* BLCMedia.m in Sources */,
 				437576D619D39C9E00C27315 /* BLCComment.m in Sources */,
+				437576D919D3A1C600C27315 /* BLCDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

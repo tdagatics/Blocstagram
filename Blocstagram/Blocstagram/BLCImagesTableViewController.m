@@ -7,6 +7,10 @@
 //
 
 #import "BLCImagesTableViewController.h"
+#import "BLCDataSource.h"
+#import "BLCMedia.h"
+#import "BLCUser.h"
+#import "BLCComment.h"
 
 @interface BLCImagesTableViewController ()
 
@@ -19,7 +23,6 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
-        self.images = [NSMutableArray array];
     }
     return self;
 }
@@ -27,17 +30,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UIAlertView *welcomeAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Dagati Family Photo Album (2014)", "Welcome to View of Photos") message:NSLocalizedString(@"Pizzas, Plants, Nephews", "Welcome to Browser") delegate:nil cancelButtonTitle:NSLocalizedString(@"Okay, view photos!", @"Okay, user browser!") otherButtonTitles:nil];
-    [welcomeAlert show];
-    
-    for (int i = 1; i <= 10; i++) {
-        NSString *imageName = [NSString stringWithFormat:@"%d.jpg", i];
-        
-        UIImage *image = [UIImage imageNamed:imageName];
-        if (image) {
-            [self.images addObject:image];
-        }
-    }
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"imageCell"];
     
@@ -58,7 +50,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.images.count;
+    return [BLCDataSource sharedInstance].mediaItems.count;
 }
 
 
@@ -84,20 +76,20 @@
         
     }
     
-    UIImage *image = self.images[indexPath.row];
-    imageView.image = image;
+    BLCMedia *item = [BLCDataSource sharedInstance].mediaItems[indexPath.row];
+    imageView.image = item.image;
+    
     
     return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     //return 300; *Set arbitrary height for the view of the image in the cell
-    UIImage *image = self.images[indexPath.row];
-    NSLog(@"Width of the device: %f", CGRectGetWidth(self.view.frame)); // References the width of the view of the device
-    NSLog(@"Width of the image: %f", image.size.width);
-    NSLog(@"Original height of the image: %f", image.size.height);
-    NSLog(@"Final height of the image: %f", (CGRectGetWidth(self.view.frame)/image.size.width)*image.size.height);
-    return (CGRectGetWidth(self.view.frame)/image.size.width) * image.size.height;
+    BLCMedia *item = [BLCDataSource sharedInstance].mediaItems[indexPath.row];
+    UIImage *image = item.image;
+    
+    return image.size.height / image.size.width * CGRectGetWidth(self.view.frame);
+    
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
