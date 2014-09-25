@@ -29,7 +29,9 @@
     [super viewDidLoad];
     
     for (int i = 1; i <= 10; i++) {
+        NSLog(@"Images %d", i);
         NSString *imageName = [NSString stringWithFormat:@"%d.jpg", i];
+        NSLog(@"The imageName is %@", imageName);
         UIImage *image = [UIImage imageNamed:imageName];
         if (image) {
             [self.images addObject:image];
@@ -57,7 +59,6 @@
 {
     return self.images.count;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
