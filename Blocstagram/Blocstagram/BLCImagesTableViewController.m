@@ -27,9 +27,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UIAlertView *welcomeAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Dagati Family Photo Album (2014)", "Welcome to View of Photos") message:NSLocalizedString(@"Pizzas, Plants, Nephews", "Welcome to Browser") delegate:nil cancelButtonTitle:NSLocalizedString(@"Okay, view photos!", @"Okay, user browser!") otherButtonTitles:nil];
+    [welcomeAlert show];
     
     for (int i = 1; i <= 10; i++) {
         NSString *imageName = [NSString stringWithFormat:@"%d.jpg", i];
+        
         UIImage *image = [UIImage imageNamed:imageName];
         if (image) {
             [self.images addObject:image];
