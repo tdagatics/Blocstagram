@@ -69,8 +69,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     //return 300; *Set arbitrary height for the view of the image in the cell
-   // BLCMedia *item = [BLCDataSource sharedInstance].mediaItems[indexPath.row];
-    BLCMedia *item = self.items[indexPath.row];
+    BLCMedia *item = [BLCDataSource sharedInstance].mediaItems[indexPath.row];
     
     return [BLCMediaTableViewCell heightForMediaItem:item width:CGRectGetWidth(self.view.frame)];
 }
