@@ -62,7 +62,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     BLCMediaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mediaCell" forIndexPath:indexPath];
-    cell.mediaItem = [BLCDataSource sharedInstance].mediaItems[indexPath.row];
+    cell.mediaItem = self.items[indexPath.row];
+    //cell.mediaItem = [BLCDataSource sharedInstance].mediaItems[indexPath.row];
     
     return cell;
 }
